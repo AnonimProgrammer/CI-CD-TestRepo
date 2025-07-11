@@ -2,9 +2,9 @@ name: Test App CI
 
 on:
   push:
-    branches: [ "main", "features", "bugfixes" ]
+    branches: [ "master", "features", "bugfixes" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
