@@ -16,7 +16,7 @@ public class ControllerTest {
 
     @Test
     void testSayHello() throws Exception {
-        mockMvc.perform(get("/api/hell"))
+        mockMvc.perform(get("/api/hello"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello, World!"));
     }
