@@ -2,7 +2,7 @@ name: Test App CI
 
 on:
   push:
-    branches: [ "main", "setup-ci" ]
+    branches: [ "main", "features", "bugfixes" ]
   pull_request:
     branches: [ "main" ]
 
