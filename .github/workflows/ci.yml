@@ -1,8 +1,6 @@
 name: Test App CI
 
 on:
-  push:
-    branches: [ "master", "features", "bugfixes" ]
   pull_request:
     branches: [ "master" ]
 
