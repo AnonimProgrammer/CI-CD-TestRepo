@@ -11,7 +11,7 @@ public class Controller {
 
     @GetMapping("/hello")
     public ResponseEntity<String> sayHello(){
-        String greeting = "Welcome.";
+        String greeting = "Hello, World!";
         return ResponseEntity.ok(greeting);
     }
 
