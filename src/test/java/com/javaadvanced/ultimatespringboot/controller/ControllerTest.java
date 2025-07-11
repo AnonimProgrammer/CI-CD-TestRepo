@@ -25,7 +25,7 @@ public class ControllerTest {
     void testSayGoodbye() throws Exception {
         mockMvc.perform(get("/api/goodbye"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Hello, World!"));
+                .andExpect(content().string("Goodbye, World!"));
     }
 }
 
