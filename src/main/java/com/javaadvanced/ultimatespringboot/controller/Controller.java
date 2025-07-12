@@ -15,6 +15,11 @@ public class Controller {
         this.userService = userService;
     }
 
+    @GetMapping("/greetings")
+    public String greetings() {
+        return "Hello, welcome to the Ultimate Spring Boot application!";
+    }
+
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User createdUser = userService.createUser(user);
