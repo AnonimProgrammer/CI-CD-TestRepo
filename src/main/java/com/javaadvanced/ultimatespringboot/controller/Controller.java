@@ -1,23 +1,29 @@
 package com.javaadvanced.ultimatespringboot.controller;
 
+import com.javaadvanced.ultimatespringboot.model.entity.User;
+import com.javaadvanced.ultimatespringboot.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class Controller {
 
-    @GetMapping("/hello")
-    public ResponseEntity<String> sayHello(){
-        String welcome = "Hello, World!";
-        return ResponseEntity.ok(welcome);
+    private final UserService userService;
+
+    public Controller(UserService userService) {
+        this.userService = userService;
     }
 
-    @GetMapping("/goodbye")
-    public ResponseEntity<String> sayGoodbye(){
-        String farewell = "Goodbye, World!";
-        return ResponseEntity.ok(farewell);
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User createdUser = userService.createUser(user);
+        return ResponseEntity.ok(createdUser);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
     }
 }
