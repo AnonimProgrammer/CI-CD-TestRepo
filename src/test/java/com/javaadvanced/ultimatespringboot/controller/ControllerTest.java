@@ -39,7 +39,7 @@ public class ControllerTest {
 
         when(userService.createUser(any(User.class))).thenReturn(savedUser);
 
-        mockMvc.perform(post("/api/users")
+        mockMvc.perform(post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(inputUser)))
                 .andExpect(status().isOk())
@@ -56,7 +56,7 @@ public class ControllerTest {
 
         when(userService.getUserById(id)).thenReturn(user);
 
-        mockMvc.perform(get("/api/users/{id}", id))
+        mockMvc.perform(get("/api/v1/users/{id}", id))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(id))
                 .andExpect(jsonPath("$.username").value("Test User"));
