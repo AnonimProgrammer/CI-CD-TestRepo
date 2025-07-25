@@ -34,7 +34,11 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build and Test with Maven
-        run: mvn clean install
+        run: |
+          SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5440/user_db \
+          SPRING_DATASOURCE_USERNAME=user \
+          SPRING_DATASOURCE_PASSWORD=password \
+          mvn clean install
 
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
