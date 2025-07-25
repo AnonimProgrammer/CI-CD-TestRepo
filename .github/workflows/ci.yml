@@ -3,9 +3,11 @@ name: Test App CI
 on:
   pull_request:
     branches: [ "master" ]
+  push:
+    branches: [ "master" ]
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
 
     services:
@@ -37,7 +39,7 @@ jobs:
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: dockerforomar/springboot-images-new
+          image: dockerforomar/test-app
           tags: latest
           registry: docker.io
           dockerfile: Dockerfile
