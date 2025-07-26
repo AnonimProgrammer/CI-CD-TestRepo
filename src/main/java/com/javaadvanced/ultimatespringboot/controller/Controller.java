@@ -26,6 +26,9 @@ public class Controller {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        if (id <= 0) {
+            return ResponseEntity.badRequest().build();
+        }
         User user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
