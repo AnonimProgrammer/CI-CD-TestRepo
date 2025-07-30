@@ -17,7 +17,6 @@ public class Controller {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        // Validate that the user object has a non-null ID and a non-null username
         if (user.getId() != null && user.getUsername() == null) {
             return ResponseEntity.badRequest().build();
         }
