@@ -15,6 +15,11 @@ public class Controller {
         this.userService = userService;
     }
 
+    @GetMapping("/hello")
+    public ResponseEntity<String> getHello() {
+        return ResponseEntity.ok("An interesting way to say hello from the controller!");
+    }
+
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         if (user.getId() != null && user.getUsername() == null) {
