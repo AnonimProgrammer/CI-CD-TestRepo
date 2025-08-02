@@ -3,9 +3,9 @@ spring:
     name: test-app
 
   datasource:
-    url: jdbc:postgresql://postgres-service:5432/user_db
-    username: user
-    password: password
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
