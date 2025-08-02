@@ -21,9 +21,15 @@ spec:
             - name: POSTGRES_DB
               value: user_db
             - name: POSTGRES_USER
-              value: user
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: DATASOURCE_USERNAME
             - name: POSTGRES_PASSWORD
-              value: password
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DATASOURCE_PASSWORD
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-storage
