@@ -17,7 +17,7 @@ public class Controller {
 
     @GetMapping("/hello")
     public ResponseEntity<String> getHello() {
-        return ResponseEntity.ok("An interesting way to say hello from the controller!");
+        return ResponseEntity.ok("Way to say hello from the controller!");
     }
 
     @PostMapping
